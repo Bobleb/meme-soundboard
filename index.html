@@ -2,10 +2,10 @@
 <html lang="en-us">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-		<title>Tristan Ernhart</title>
+		<title>Meme Machine</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="require.js"></script>
+		<!-- <script src="require.js"></script> -->
 		<!--<script src="node_modules/file-system/file-system.js"></script>-->
 		<!--<script>var fs = require("fs")</script>-->
 	</head>
@@ -24,9 +24,9 @@
 		</section>	
 	</body>
 	<script>
-		$(document).ready(function() {
-			$("#button_1").on("click",playlist($("#text_area").val()))
-			$("#FUCK").on("click", function(){console.log("clicked")})
+		//$(document).ready(function() {
+			//$("#button_1").on("click",playlist($("#text_area").val()))
+			//$("#FUCK").on("click", function(){console.log("clicked")})
 			function playlist(initial_text){
 				var playlist = initial_text.split(" ")
 				var audio = var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
@@ -59,7 +59,7 @@
 			function getRandomInt(max) {
 	  			return Math.floor(Math.random() * Math.floor(max) + 1);
 			}
-		}
+		//}
 
 
 	</script>
