@@ -4,66 +4,113 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 		<title>Meme Machine</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<!-- <script src="require.js"></script> -->
-		<!--<script src="node_modules/file-system/file-system.js"></script>-->
-		<!--<script>var fs = require("fs")</script>-->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
-		<div id="output"></div>
 		<section>
-              <div class="form-group">
-                <label for=""></label>
-                <input type="text" class="form-control" id="text_area">
-              </div>
 			<div>
-				<button id="button_1">push me</button>
+				<input type="text" class="form-control" id="text_area">
+				<button id="button_1"  >push me</button>
 			</div>
-
 		</section>	
 	</body>
 	<script>
+		//onclick="playlist($('#text_area'))"
 		$(document).ready(function() {
-			//$("#button_1").on("click",playlist($("#text_area").val()))
-			$("#button_1").on("click",function(){console.log("clicked")})
-			//$("#FUCK").on("click", function(){console.log("clicked")})
+			console.log("here")
+			$("#button_1").on("click",function(){playlist($("#text_area").val())})
+			//$("#button_1").on("click",function(){console.log("clicked")})
+			//$("#button_1").onclick = function(){console.log("clicked2")}
+		});
+			//playlist($("#text_area"))
 			function playlist(initial_text){
+				console.log("playlist")
+				console.log(initial_text)
 				var playlist = initial_text.split(" ");
-				var audio = var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
-				var timer = audio.duration;
-				play_audio(playlist,timer, audio);
+				//console.log($("#text_area"))
+				//var playlist = $("#text_area").val().split(" ")
+				var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
+				setTimeout(() => {
+					console.log(audio)
+					console.log(audio.buffered)
+
+					console.log(document.getElementById(audio))
+					//var timer = document.getElementById(audio).duration;
+					play_audio(playlist,timer, audio);
+					}, 1005)
 			};
+
+
+
 			function play_audio(playlist,timer,force_audio){
+				console.log("sound1")
+				//choose sound
+		    	if(force_audio!=false){
+		    		var audio = new Audio(force_audio);
+		    	};
+		    	if(force_audio==false){
+		    		//I'd like to get file-system working to check how many variants of a word there are
+		    		// and enter that value as the upper limit for this int here>|<
+		    		var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
+		    	};
+				//get sound duraton
+				var timer = audio.duration();
+				// start timeout
+				setTimeout(() => {
 
-			    setTimeout(() => {
-			    	console.log("sound");
-			    	//play sound here
-			    	if(force_audio!=false){
-			    		var audio = new Audio(force_audio);
-			    	};
-			    	if(force_audio==false){
-			    		//I'd like to get file-system working to check how many variants of a word there are
-			    		// and enter that value as the upper limit for this int here>|<
-			    		var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
-			    	};
-
-
+					//play sound
 					audio.play();
-			    	//remove sound from playlist
-			    	playlist.shift();
-			    	//recursive
-			    	var timer = audio.duration();
-			    	play_audio(playlist,timer,false);
+					//remove sound from playlist
+					playlist.shift();
+					//recursive
+					play_audio(playlist,timer,false);
+				}, timer+5)
 
-			    }, timer+5);
-			};
 
-			function getRandomInt(max) {
-	  			return Math.floor(Math.random() * Math.floor(max) + 1);
-			};
+
+
+
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+			// function play_audio(playlist,timer,force_audio){
+			// 	console.log("sound1")
+			//     setTimeout(() => {
+			//     	console.log("sound");
+			//     	//play sound here
+			//     	if(force_audio!=false){
+			//     		var audio = new Audio(force_audio);
+			//     	};
+			//     	if(force_audio==false){
+			//     		//I'd like to get file-system working to check how many variants of a word there are
+			//     		// and enter that value as the upper limit for this int here>|<
+			//     		var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
+			//     	};
+
+
+			// 		audio.play();
+			//     	//remove sound from playlist
+			//     	playlist.shift();
+			//     	//recursive
+			//     	var timer = audio.duration();
+			//     	play_audio(playlist,timer,false);
+
+			//     }, timer+5);
+			// };
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * Math.floor(max) + 1);
 		};
-
-
 	</script>
 	<footer>
 		
