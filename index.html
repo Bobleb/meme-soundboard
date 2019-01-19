@@ -17,21 +17,22 @@
                 <input type="text" class="form-control" id="text_area">
               </div>
 			<div>
-				<button id="button_1" onclick="playlist($('#text_area'))">push me</button>
+				<button id="button_1">push me</button>
 			</div>
 
 		</section>	
 	</body>
 	<script>
-		//$(document).ready(function() {
+		$(document).ready(function() {
 			//$("#button_1").on("click",playlist($("#text_area").val()))
+			$("#button_1").on("click",function(){console.log("clicked")})
 			//$("#FUCK").on("click", function(){console.log("clicked")})
 			function playlist(initial_text){
 				var playlist = initial_text.split(" ");
 				var audio = var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
 				var timer = audio.duration;
 				play_audio(playlist,timer, audio);
-			}
+			};
 			function play_audio(playlist,timer,force_audio){
 
 			    setTimeout(() => {
@@ -39,26 +40,28 @@
 			    	//play sound here
 			    	if(force_audio!=false){
 			    		var audio = new Audio(force_audio);
-			    	}
+			    	};
 			    	if(force_audio==false){
+			    		//I'd like to get file-system working to check how many variants of a word there are
+			    		// and enter that value as the upper limit for this int here>|<
 			    		var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
-			    	}
+			    	};
 
 
 					audio.play();
 			    	//remove sound from playlist
-			    	playlist.shift()
+			    	playlist.shift();
 			    	//recursive
 			    	var timer = audio.duration();
 			    	play_audio(playlist,timer,false);
 
 			    }, timer+5);
-			}
+			};
 
 			function getRandomInt(max) {
 	  			return Math.floor(Math.random() * Math.floor(max) + 1);
-			}
-		//}
+			};
+		};
 
 
 	</script>
