@@ -24,38 +24,6 @@
 		</section>	
 	</body>
 	<script>
-
-
-
-
-
-		//var audio = new audio()
-		//var fs = require('fs')
-		// function check_for_files(word){
-		// 	var more_files=true
-		// 	var i = 1
-		// 	while (more_files=true){
-		// 		var result = fs.readFile(""+words[i]+i+".mp3",function(err, data){
-		// 			//console.log(err)
-		// 			if(err){return(false)}
-		// 			else{return(true)}
-		// 		})
-		// 		if(result = false){more_files=false}
-		// 		if(result = true){i++}
-
-		// 	}
-		// return(i)
-		// }
-
-
-
-		//onclick="playlist($(text_area).val())"
-		//document.addEventListener("click", function(){
-  		//	document.getElementById("button_1").innerHTML = "Hello World";
-		//});
-
-
-		//document.getElementById("button_1").addEventListener("click", playlist($("text_area").val()))
 		$(document).ready(function() {
 			$("#button_1").on("click",playlist($("#text_area").val()))
 			$("#FUCK").on("click", function(){console.log("clicked")})
@@ -88,75 +56,11 @@
 			    }, timer+5);
 			}
 
-
-
-
-
-
-
-
-
-
-
-
 			function getRandomInt(max) {
 	  			return Math.floor(Math.random() * Math.floor(max) + 1);
 			}
 		}
-		// function playlist(initial_text){
-		// 	var playlist = initial_text.split(" ")
-		// 	console.log(playlist)
-		// 	for(i=0;i<playlist.length;i++){
-		// 		//play_audio(playlist[i])
-		// 		console.log(1)
-		// 		    setTimeout(() => {
-		// 		    	console.log(2)
-		// 		    	play_audio(playlist[i])
 
-		// 		    }, 1000);
-		// 		    console.log(3)
-		// 	}
-		// 	console.log(4)
-		// }
-
-
-		// function play_audio(word){
-		// 	console.log(word)
-		// 	if(audio == undefined){
-		// 		var audio = new Audio("sounds/"+word+"_"+getRandomInt(2)+'.mp3');
-		// 		audio.play();
-		// 	}
-
-		// 	else{audio.onended = function() {
-		// 			var audio = new Audio("sounds/"+word+"_"+getRandomInt(2)+'.mp3');
-		// 			audio.play();
-		// 		};
-		// 	}
-
-
-
-		// }
-
-
-
-
-		// function play_audio(initial_text){
-		// 	var words = initial_text.split(" ")
-		// 	//console.log(words)
-
-		// 	var audio_playing = false
-		// 	for (i=0; i < words.length; i++) {
-		// 		console.log(words[i])
-		// 		//console.log(check_for_files(words[i]))
-		// 		var audio = new Audio("sounds/"+words[i]+"_"+getRandomInt(2)+'.mp3');
-		// 		audio.play();
-		// 		while(audio_playing=true){
-
-		// 		}
-
-		// 	}
-
-		// }
 
 	</script>
 	<footer>
