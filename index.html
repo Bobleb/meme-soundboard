@@ -18,7 +18,6 @@
               </div>
 			<div>
 				<button id="button_1" onclick="playlist($('#text_area'))">push me</button>
-				<img src="Capture.png" id='FUCK'>
 			</div>
 
 		</section>	
@@ -28,18 +27,18 @@
 			//$("#button_1").on("click",playlist($("#text_area").val()))
 			//$("#FUCK").on("click", function(){console.log("clicked")})
 			function playlist(initial_text){
-				var playlist = initial_text.split(" ")
+				var playlist = initial_text.split(" ");
 				var audio = var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
-				var timer = audio.duration
-				play_audio(playlist,timer, audio)
+				var timer = audio.duration;
+				play_audio(playlist,timer, audio);
 			}
 			function play_audio(playlist,timer,force_audio){
 
 			    setTimeout(() => {
-			    	console.log("sound")
+			    	console.log("sound");
 			    	//play sound here
 			    	if(force_audio!=false){
-			    		var audio = new Audio(force_audio)
+			    		var audio = new Audio(force_audio);
 			    	}
 			    	if(force_audio==false){
 			    		var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
@@ -50,8 +49,8 @@
 			    	//remove sound from playlist
 			    	playlist.shift()
 			    	//recursive
-			    	var timer = audio.duration()
-			    	play_audio(playlist,timer,false)
+			    	var timer = audio.duration();
+			    	play_audio(playlist,timer,false);
 
 			    }, timer+5);
 			}
