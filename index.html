@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<title>Tristan Ernhart</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="require.js"></script>
+		<!--<script src="node_modules/file-system/file-system.js"></script>-->
+		<!--<script>var fs = require("fs")</script>-->
+	</head>
+	<body>
+		<div id="output"></div>
+		<section>
+              <div class="form-group">
+                <label for=""></label>
+                <input type="text" class="form-control" id="text_area">
+              </div>
+			<div>
+				<button id="button_1" onclick="playlist($('#text_area'))">push me</button>
+				<img src="Capture.png" id='FUCK'>
+			</div>
+
+		</section>	
+	</body>
+	<script>
+
+
+
+
+
+		//var audio = new audio()
+		//var fs = require('fs')
+		// function check_for_files(word){
+		// 	var more_files=true
+		// 	var i = 1
+		// 	while (more_files=true){
+		// 		var result = fs.readFile(""+words[i]+i+".mp3",function(err, data){
+		// 			//console.log(err)
+		// 			if(err){return(false)}
+		// 			else{return(true)}
+		// 		})
+		// 		if(result = false){more_files=false}
+		// 		if(result = true){i++}
+
+		// 	}
+		// return(i)
+		// }
+
+
+
+		//onclick="playlist($(text_area).val())"
+		//document.addEventListener("click", function(){
+  		//	document.getElementById("button_1").innerHTML = "Hello World";
+		//});
+
+
+		//document.getElementById("button_1").addEventListener("click", playlist($("text_area").val()))
+		$(document).ready(function() {
+			$("#button_1").on("click",playlist($("#text_area").val()))
+			$("#FUCK").on("click", function(){console.log("clicked")})
+			function playlist(initial_text){
+				var playlist = initial_text.split(" ")
+				var audio = var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
+				var timer = audio.duration
+				play_audio(playlist,timer, audio)
+			}
+			function play_audio(playlist,timer,force_audio){
+
+			    setTimeout(() => {
+			    	console.log("sound")
+			    	//play sound here
+			    	if(force_audio!=false){
+			    		var audio = new Audio(force_audio)
+			    	}
+			    	if(force_audio==false){
+			    		var audio = new Audio("sounds/"+playlist[0]+"_"+getRandomInt(2)+'.mp3');
+			    	}
+
+
+					audio.play();
+			    	//remove sound from playlist
+			    	playlist.shift()
+			    	//recursive
+			    	var timer = audio.duration()
+			    	play_audio(playlist,timer,false)
+
+			    }, timer+5);
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+			function getRandomInt(max) {
+	  			return Math.floor(Math.random() * Math.floor(max) + 1);
+			}
+		}
+		// function playlist(initial_text){
+		// 	var playlist = initial_text.split(" ")
+		// 	console.log(playlist)
+		// 	for(i=0;i<playlist.length;i++){
+		// 		//play_audio(playlist[i])
+		// 		console.log(1)
+		// 		    setTimeout(() => {
+		// 		    	console.log(2)
+		// 		    	play_audio(playlist[i])
+
+		// 		    }, 1000);
+		// 		    console.log(3)
+		// 	}
+		// 	console.log(4)
+		// }
+
+
+		// function play_audio(word){
+		// 	console.log(word)
+		// 	if(audio == undefined){
+		// 		var audio = new Audio("sounds/"+word+"_"+getRandomInt(2)+'.mp3');
+		// 		audio.play();
+		// 	}
+
+		// 	else{audio.onended = function() {
+		// 			var audio = new Audio("sounds/"+word+"_"+getRandomInt(2)+'.mp3');
+		// 			audio.play();
+		// 		};
+		// 	}
+
+
+
+		// }
+
+
+
+
+		// function play_audio(initial_text){
+		// 	var words = initial_text.split(" ")
+		// 	//console.log(words)
+
+		// 	var audio_playing = false
+		// 	for (i=0; i < words.length; i++) {
+		// 		console.log(words[i])
+		// 		//console.log(check_for_files(words[i]))
+		// 		var audio = new Audio("sounds/"+words[i]+"_"+getRandomInt(2)+'.mp3');
+		// 		audio.play();
+		// 		while(audio_playing=true){
+
+		// 		}
+
+		// 	}
+
+		// }
+
+	</script>
+	<footer>
+		
+	</footer>
+</html>
